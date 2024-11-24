@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const seasonSelector = document.getElementById("season");
   const gameContainer = document.getElementById("game-container");
 
-  // Set the default background to spring
+  // Set the default background to fall
   changeBackground("fall");
 
   seasonSelector.addEventListener("change", function () {
