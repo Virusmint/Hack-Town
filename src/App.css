@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #333;
+  color: #eee;
+  font-family: Helvetica, Arial;
+  font-size: 3vmin;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.background {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center center;
+  /*filter: blur(8em) opacity(0.6);*/
+  position: absolute;
+}
+
+.main-wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 45px;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  position: relative;
+  width: 80%;
+  z-index: 1;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.main-container {
+  flex: 1;
+}
+
+.now-playing__name {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+.now-playing__artist {
+  margin-bottom: 1em;
+}
+
+.now-playing__status {
+  margin-bottom: 1em;
+}
+
+.now-playing__cover {
+  border-radius: 8px;
+  float: left;
+  margin-right: 10px;
+  max-width: 200px; /* Limit maximum size */
+  width: 50%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image fills its space nicely */
+  /* Optional: To ensure it scales better on mobile screens */
+  max-height: 200px; /* Optional: Limit the max height if needed */
+}
+
+.now-playing__side {
+  margin-left: 2%;
+  width: 45%;
+}
+.btn-login {
+  background-color: #1db954;
+  border: 1px solid #1db954;
+  border-radius: 500px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.8em 1.4em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.btn-spotify-container {
+  display: flex; /* Enable flexbox */
+  flex-wrap: nowrap; /* Prevent buttons from wrapping to the next line */
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 10px; /* Add spacing between buttons */
+  align-items: center; /* Align buttons vertically */
+}
+
+.btn-spotify {
+  background-color: transparent; /* No background color */
+  border: none; /* No border */
+  display: inline-flex; /* Use flexbox to align the icon properly */
+  justify-content: center; /* Center the icon inside the button */
+  align-items: center; /* Vertically center the icon */
+  cursor: pointer;
+  color: #ffffff; /* White icon color */
+  font-size: 24px; /* Adjust the size of the icon */
+  padding: 8px 16px; /* Padding around the icon */
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+@media (max-width: 768px) {
+  .btn-spotify {
+    font-size: 1em; /* Reduce font size on smaller screens */
+    padding: 8px 16px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-spotify {
+    font-size: 0.9em; /* Further reduce font size on very small screens */
+    padding: 6px 12px; /* Further adjust padding */
+  }
+}
+.btn-spotify:hover {
+  transform: scale(1.1); /* Slightly enlarge the button when hovered */
+}
+.btn-spotify:active {
+  position: relative;
+  top: 1px;
+}
+
+img {
+  background: transparent;
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/three@latest/build/three.min.js"></script>
+    <title>Virtual Study Island</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div id="widgets">
+      <div class="todo-container">
+        <h1>Todo List</h1>
+        <div class="input-container">
+          <input class="todo-input" placeholder="Add a new task" />
+          <button class="add-button">
+            <i class="fa fa-plus-circle"></i>
+          </button>
+        </div>
+        <div class="filters">
+          <button class="filter" id="show-complete">Complete</button>
+          <button class="filter" id="show-incomplete">Incomplete</button>
+          <button class="filter" id="delete-all">Delete All</button>
+        </div>
+        <div class="todos-container">
+          <ul class="todos"></ul>
+        </div>
+      </div>
+      <div class="timer-container">
+        <div class="circle">
+          <svg width="120" height="120" viewBox="0 0 100 100">
+            <circle class="background" cx="50" cy="50" r="45"></circle>
+            <circle class="progress" cx="50" cy="50" r="45"></circle>
+          </svg>
+          <div class="time-display">00:00:00</div>
+        </div>
+        <div class="timer-controls">
+          <input type="number" id="set-timer" placeholder="Enter minutes" />
+          <button class="start-btn">Start</button>
+          <button class="pause-btn">Pause</button>
+        </div>
+      </div>
+      <div class="season-selector">
+        <label for="season">Select Season:</label>
+        <select id="season">
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="fall" selected>Fall</option>
+          <option value="winter">Winter</option>
+        </select>
+      </div>
+
+      <div id="root"></div>
+    </div>
+
+    <div id="game-container">
+      <div id="isometric-container">
+        <div id="player"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,368 @@
+/* Apply the font to the entire body */
+body {
+  font-family: "Baloo 2", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#game-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
+
+#isometric-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+}
+
+.player {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  left: 200%;
+  top: 100%;
+}
+
+.player.forward {
+  background-image: url("imgs/player_forward.png");
+}
+
+.player.backward {
+  background-image: url("imgs/player_backwards.png");
+}
+
+.todo-container {
+  top: 10px;
+  right: 10px;
+  width: 350px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.todo-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Apply font to the input field */
+.todo-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Baloo 2", sans-serif; /* Apply Baloo 2 font */
+  font-size: 16px;
+}
+
+/* Style the placeholder text */
+.todo-input::placeholder {
+  font-family: "Baloo 2", sans-serif; /* Apply Baloo 2 font */
+  font-size: 16px;
+  color: #aaa; /* Optional: Placeholder color */
+}
+
+.add-button {
+  padding: 10px;
+  border: none;
+  background-color: #00b894;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+/* Apply font to all buttons */
+button {
+  font-family: "Baloo 2", sans-serif;
+}
+
+/* Styling for filter buttons */
+.filter {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #00b894;
+  background-color: white;
+  color: #00b894;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: "Baloo 2", sans-serif; /* Explicitly set the font here */
+  transition: all 0.3s ease;
+}
+
+.filter:hover {
+  background-color: #00b894;
+  color: white;
+}
+
+.filter.active {
+  background-color: #00b894;
+  color: white;
+}
+
+.todos-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.todo span {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.todo .delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.todo .complete-btn {
+  background: none;
+  border: none;
+  color: green;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.todo .complete-btn.completed {
+  color: gray;
+}
+
+.timer-container {
+  /* position: fixed; */
+  top: 250px;
+  left: 10px;
+  width: 350px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.timer-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.circle svg {
+  transform: rotate(-90deg);
+}
+
+circle {
+  fill: none;
+  stroke-width: 10;
+}
+
+circle.background {
+  stroke: #ddd;
+}
+
+circle.progress {
+  stroke: #00b894;
+  stroke-dasharray: 283; /* Circumference of the circle */
+  stroke-dashoffset: 283; /* Start fully hidden */
+  transition: stroke-dashoffset 0.3s linear;
+}
+
+.time-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.timer-controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.timer-controls button,
+#set-timer {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #00b894;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.timer-controls button:hover {
+  background-color: #019c7a;
+}
+
+.timer-controls #set-timer {
+  width: 120px;
+  font-family: "Baloo 2", sans-serif;
+  background-color: white;
+  border: 1px solid #019c7a;
+  border-radius: 5px;
+  color: black;
+}
+
+#set-timer::placeholder {
+  font-size: 16px; /* Match font size */
+  color: #aaa; /* Match placeholder color */
+}
+
+#widgets {
+  width: 45%;
+  height: 100vh;
+  background-color: rgb(117 190 218 / 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items at the top */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+#season {
+  font-family: "Baloo 2", sans-serif; /* Apply Baloo 2 font */
+  font-size: 1rem; /* Adjust font size */
+  padding: 0.5rem; /* Add some padding for better appearance */
+  border: 1px solid #ccc; /* Optional: Add a border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.season-selector {
+  margin-top: 1rem; /* Optional: Add spacing above the season selector */
+}
+
+.todo-container,
+.timer-container {
+  width: 75%; /* Fit within the beige zone */
+  margin-top: 20px; /* Add space between elements */
+}
+
+.todo-container h1,
+.timer-container h1 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.circle {
+  margin: 10px auto;
+}
+
+.timer-controls {
+  justify-content: space-around;
+}
+
+.todo-container {
+  transition:
+    height 0.3s ease,
+    padding 0.3s ease; /* Smoothly adjust height and padding */
+}
+
+.filters,
+.todos-container,
+.input-container {
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease; /* Smoothly adjust opacity and visibility */
+}
+
+/* Minimized state styles for Todo List */
+.todo-container.collapsed {
+  height: auto; /* Adjust height for the title and input field */
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.todo-container.collapsed .filters,
+.todo-container.collapsed .todos-container {
+  display: none; /* Hide filters and task list */
+  opacity: 0; /* Gradually fade out */
+  visibility: hidden; /* Hide these elements */
+}
+
+.todo-container.collapsed .input-container {
+  display: flex; /* Keep the input field and add button visible */
+  opacity: 1; /* Ensure it's fully visible */
+  visibility: visible;
+}
+/* Expanded state */
+.filters,
+.todos-container {
+  opacity: 1; /* Fully visible */
+  visibility: visible;
+}
+
+.timer-container {
+  transition:
+    height 0.3s ease,
+    padding 0.3s ease; /* Smooth transition for height and padding */
+}
+
+.timer-controls,
+#set-timer {
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease; /* Smooth transition for visibility */
+}
+
+/* Collapsed state for Timer Container */
+.timer-container.collapsed {
+  height: auto; /* Adjust height to show only the circle and time display */
+  overflow: hidden;
+  padding-bottom: 10px; /* Adjust padding for collapsed state */
+}
+
+.timer-container.collapsed .timer-controls,
+.timer-container.collapsed #set-timer {
+  display: none; /* Hide the controls and input field */
+  opacity: 0; /* Gradually fade out */
+  visibility: hidden; /* Make these elements inaccessible */
+}
