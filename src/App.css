@@ -5,17 +5,6 @@
 }
 
 html,
-body {
-  height: 100%;
-}
-
-body {
-  background-color: #333;
-  color: #eee;
-  font-family: Helvetica, Arial;
-  font-size: 3vmin;
-}
-
 .App {
   text-align: center;
 }
