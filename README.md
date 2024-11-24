@@ -65,15 +65,15 @@ npm run dev
 
 ---
 
-##**Frontend:**
+**Frontend:**
 - React.js, HTML5, CSS3, JavaScript (ES6)
 - Spotify API and OpenWeatherMap API integrations
 - Pixel art visuals for dynamic seasonal islands and the study buddy
 
-##**Backend:**
+**Backend:**
 - Node.js and Express.js for server-side logic and API handling
 
-##**Tools:**:
+**Tools:**:
 - Three.js for rendering 3D animations
 - dotenv for managing environment variables
 - Font Awesome for icons
