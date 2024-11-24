@@ -342,6 +342,7 @@ circle.progress {
 
 .season-selector {
   margin-top: 1rem; /* Optional: Add spacing above the season selector */
+  margin-bottom: 1rem;
 }
 
 .todo-container,

@@ -88,76 +88,77 @@ function WebPlayback(props) {
       <>
         <div className="container">
           <div className="main-wrapper">
-            <img
-              src={current_track.album.images[0].url}
-              className="now-playing__cover"
-              alt=""
-            />
-
             <div className="now-playing__side">
-              <div className="now-playing__name">{current_track.name}</div>
-              <div className="now-playing__artist">
-                {current_track.artists[0].name}
-              </div>
-              <div className="btn-spotify-container">
-                <button
-                  className="btn-spotify"
-                  onClick={() => {
-                    player.previousTrack();
-                  }}
-                >
-                  <IoIosSkipBackward />
-                </button>
-
-                <button
-                  className="btn-spotify"
-                  onClick={() => {
-                    player.togglePlay();
-                  }}
-                >
-                  {isPaused ? <FaPlay /> : <FaPause />}
-                </button>
-
-                <button
-                  className="btn-spotify"
-                  onClick={() => {
-                    player.nextTrack();
-                  }}
-                >
-                  <IoIosSkipForward />
-                </button>
-                {/* Volume Slider */}
-                <div className="volume-control">
-                  {showVolume ? (
-                    <button
-                      className="btn-spotify volume-icon"
-                      onClick={() => {
-                        setShowVolume(false);
-                        player.setVolume(0);
-                      }}
-                    >
-                      <FaVolumeDown />
-                    </button>
-                  ) : (
-                    <button
-                      className="btn-spotify volume-icon"
-                      onClick={() => {
-                        setShowVolume(true);
-                        player.setVolume(volume / 100);
-                      }}
-                    >
-                      <FaVolumeMute />
-                    </button>
-                  )}
-                  <input
-                    id="volume-slider"
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={showVolume ? volume : 0}
-                    onChange={handleVolumeChange}
-                  />
+              <img
+                src={current_track.album.images[0].url}
+                className="now-playing__cover"
+                alt=""
+              />
+              <div className="now-playing__info">
+                <div className="now-playing__name">{current_track.name}</div>
+                <div className="now-playing__artist">
+                  {current_track.artists[0].name}
                 </div>
+              </div>
+            </div>
+            <div className="btn-spotify-container">
+              <button
+                className="btn-spotify"
+                onClick={() => {
+                  player.previousTrack();
+                }}
+              >
+                <IoIosSkipBackward />
+              </button>
+
+              <button
+                className="btn-spotify"
+                onClick={() => {
+                  player.togglePlay();
+                }}
+              >
+                {isPaused ? <FaPlay /> : <FaPause />}
+              </button>
+
+              <button
+                className="btn-spotify"
+                onClick={() => {
+                  player.nextTrack();
+                }}
+              >
+                <IoIosSkipForward />
+              </button>
+              {/* Volume Slider */}
+              <div className="volume-control">
+                {showVolume ? (
+                  <button
+                    className="btn-spotify volume-icon"
+                    onClick={() => {
+                      setShowVolume(false);
+                      player.setVolume(0);
+                    }}
+                  >
+                    <FaVolumeDown />
+                  </button>
+                ) : (
+                  <button
+                    className="btn-spotify volume-icon"
+                    onClick={() => {
+                      setShowVolume(true);
+                      player.setVolume(volume / 100);
+                    }}
+                  >
+                    <FaVolumeMute />
+                  </button>
+                )}
+                <input
+                  id="volume-slider"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={showVolume ? volume : 0}
+                  onChange={handleVolumeChange}
+                />
               </div>
             </div>
           </div>

@@ -36,11 +36,11 @@ html,
 }
 
 .main-wrapper {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   padding: 45px;
-  align-items: center;
   display: flex;
+  flex-direction: column;
   height: 100%;
   margin: 0 auto;
   justify-content: center;
@@ -76,9 +76,9 @@ html,
 .now-playing__cover {
   border-radius: 8px;
   float: left;
-  margin-right: 10px;
+  margin-right: 20px;
   max-width: 200px; /* Limit maximum size */
-  width: 50%;
+  width: 100%;
   height: auto; /* Maintain aspect ratio */
   object-fit: cover; /* Ensure the image fills its space nicely */
   /* Optional: To ensure it scales better on mobile screens */
@@ -86,6 +86,8 @@ html,
 }
 
 .now-playing__side {
+  display: flex;
+  align-items: center;
   margin-left: 2%;
   width: 45%;
 }
@@ -119,7 +121,7 @@ html,
   justify-content: center; /* Center the icon inside the button */
   align-items: center; /* Vertically center the icon */
   cursor: pointer;
-  color: #ffffff; /* White icon color */
+  color: #000000; /* White icon color */
   font-size: 24px; /* Adjust the size of the icon */
   padding: 8px 16px; /* Padding around the icon */
   text-decoration: none;
