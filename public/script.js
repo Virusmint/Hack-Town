@@ -364,3 +364,102 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+
+const BASE_URL = "http://api.openweathermap.org/data/2.5/weather?";
+const LOC_API_KEY = process.env.API_KEY;  
+const CITY = "MONTREAL";
+
+
+// Function to fetch weather data
+async function fetchWeatherData() {
+  // Construct the URL for the API request
+const url = `${BASE_URL}q=${CITY}&appid=${LOC_API_KEY}&units=metric`;
+  try {
+    const response = await fetch(url);
+    
+    if (response.ok) {
+      const data = await response.json();
+      
+      const main = data.main;
+      const temperature = main.temp;
+      const weather = data.weather[0];
+      const weather_condition = weather.main;
+      const timezone_offset = data.timezone;
+      const current_time_utc = new Date(data.dt * 1000); 
+      const local_time = new Date(current_time_utc.getTime() + timezone_offset * 1000);
+
+      // Function to determine the season based on the current date
+      function findSeason() {
+        const now = new Date();
+        const month = now.getMonth() + 1; // Months are 0-11, so add 1 to make it 1-12
+        const day = now.getDate();
+
+        // Determine the season based on month and day
+        if ((month === 12 && day >= 21) || (month <= 3 && (month === 1 || month === 2 || (month === 3 && day < 20)))) {
+          return "Winter";
+        } else if ((month === 3 && day >= 20) || (month <= 6 && (month === 4 || month === 5 || (month === 6 && day < 21)))) {
+          return "Spring";
+        } else if ((month === 6 && day >= 21) || (month <= 9 && (month === 7 || month === 8 || (month === 9 && day < 22)))) {
+          return "Summer";
+        } else if ((month === 9 && day >= 22) || (month <= 12 && (month === 10 || month === 11 || (month === 12 && day < 21)))) {
+          return "Autumn";
+        }
+      }
+
+      // Return the three pieces of data as an object
+      return {
+        weatherType: weather_condition,
+        temperature: `${temperature}°C`,
+        season: findSeason()
+      };
+
+    } else {
+      console.log('Could not fetch data');
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+}
+
+// Use the function and store the results in variables
+fetchWeatherData().then((result) => {
+  if (result) {
+    const weatherType = result.weatherType;
+    const temperature = result.temperature;
+    const season = result.season;
+
+    console.log(`Weather Type: ${weatherType}`);
+    console.log(`Temperature: ${temperature}`);
+    console.log(`Season: ${season}`);
+
+    // You can now use these variables wherever you need them
+  }
+});
+
+// Function to handle user input and fetch data
+function getWeather() {
+  const city = document.getElementById('cityInput').value;
+  if (city) {
+    fetchWeatherData(city).then((result) => {
+      if (result) {
+        const weatherType = result.weatherType;
+        const temperature = result.temperature;
+        const season = result.season;
+
+        // Display the weather information
+        document.getElementById('weatherOutput').innerHTML = `
+          <h3>Weather in ${city}</h3>
+          <p>Weather Type: ${weatherType}</p>
+          <p>Temperature: ${temperature}</p>
+          <p>Season: ${season}</p>
+        `;
+      } else {
+        document.getElementById('weatherOutput').innerHTML = 'Weather data not found. Please try a different city.';
+      }
+    });
+  } else {
+    document.getElementById('weatherOutput').innerHTML = 'Please enter a city name.';
+  }
+}
+
