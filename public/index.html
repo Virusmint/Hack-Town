@@ -87,10 +87,19 @@
 
       <div id="root"></div>
     </div>
+    <div class="weather-container">
+      <input type="text" id="city-input" placeholder="Enter your city" />
+      <div class="weather-info">
+        <img id="weather-icon" src="imgs/sunny.png" alt="Weather Icon" />
+      </div>
+      <div id="weather-error" class="weather-error"></div>
+    </div>
 
     <div id="game-container">
       <div id="isometric-container">
-        <div id="player"></div>
+        <div id="player">
+          <div class="speaking-bubble">You can do it!</div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

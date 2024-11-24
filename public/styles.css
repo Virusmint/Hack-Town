@@ -14,6 +14,7 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
 #isometric-container {
@@ -38,6 +39,69 @@ body {
 
 .player.backward {
   background-image: url("imgs/player_backwards.png");
+}
+
+/* Add this CSS to your stylesheet */
+.speaking-bubble {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  text-align: center;
+  font-size: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.speaking-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+/* Add this CSS to your stylesheet */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Add this CSS to your stylesheet */
+.leaf {
+  position: absolute;
+  top: -10px;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: fall linear infinite;
+  background-repeat: no-repeat;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
 }
 
 .todo-container {
@@ -365,4 +429,50 @@ circle.progress {
   display: none; /* Hide the controls and input field */
   opacity: 0; /* Gradually fade out */
   visibility: hidden; /* Make these elements inaccessible */
+}
+
+.weather-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+#city-input {
+  width: 90%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 1rem;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#weather-icon {
+  width: 50px; /* Reduced width */
+  height: 50px; /* Reduced height */
+  object-fit: contain; /* Ensures the image fits nicely without distortion */
+  margin-top: 5px; /* Optional: Add some spacing for aesthetics */
+}
+
+.weather-error {
+  color: red; /* Display the error message in red */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  margin-top: 5px; /* Add some space above the error message */
+  text-align: center; /* Center align the error message */
+  display: none; /* Initially hide the error message */
 }
