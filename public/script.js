@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 function createWalkingPlayer(containerId) {
   const container = document.getElementById(containerId);
 
@@ -336,7 +339,7 @@ function findSeason() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const apiKey = "1b18e0f9f69d3dc2aa1da8944e1b0f42"; // Replace with your actual API key
+  const apiKey = process.env.LOC_API_KEY; // Replace with your actual API key
   const cityInput = document.getElementById("city-input");
   const weatherIcon = document.getElementById("weather-icon");
 
